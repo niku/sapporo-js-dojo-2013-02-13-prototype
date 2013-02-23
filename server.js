@@ -1,14 +1,13 @@
-var connect = require('connect');
+var express = require('express');
 
-var server = connect.createServer();
+var app = express.createServer();
 
-server.use(function (req, res, next) {
-  if ('/' == req.url) {
-    res.writeHead(200);
-    res.end('Hello world.');
-  } else {
-    next();
-  }
+app.set('view engine', 'ejs');
+app.set('views', __dirname + '/views');
+app.set('view options', { layout: false });
+
+app.get('/', function(req, res) {
+  res.render('index');
 });
 
-server.listen(3000);
+app.listen(3000);
