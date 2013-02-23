@@ -12,4 +12,9 @@ app.get('/', function(req, res) {
   res.render('index');
 });
 
+app.post('/pomodoro', function(req, res) {
+  res.header('content-type', 'application/json');
+  res.render('success');
+});
+
 app.listen(3000);
