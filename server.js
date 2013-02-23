@@ -4,6 +4,7 @@ var app = express.createServer();
 
 app.use(express.logger('dev'));
 app.use(express.static(__dirname + '/javascripts'));
+app.use(express.bodyParser());
 
 app.set('view engine', 'ejs');
 app.set('views', __dirname + '/views');
@@ -14,6 +15,8 @@ app.get('/', function(req, res) {
 });
 
 app.post('/pomodoro', function(req, res) {
+  var done = req.body.done;
+  console.log(done);
   res.header('content-type', 'application/json');
   res.render('success');
 });
