@@ -8,6 +8,7 @@ $(function() {
           $('#doneList').text(data.join(','));
         });
         clearInterval(timer);
+        remain = 5; // reset remain
         return;
       }
       document.getElementById('timer').innerHTML = remain;
