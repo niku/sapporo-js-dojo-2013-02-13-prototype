@@ -2,6 +2,7 @@ var express = require('express');
 
 var app = express.createServer();
 
+app.use(express.logger('dev'));
 app.use(express.static(__dirname + '/javascripts'));
 
 app.set('view engine', 'ejs');
