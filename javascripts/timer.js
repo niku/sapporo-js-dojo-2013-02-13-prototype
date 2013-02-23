@@ -1,3 +1,4 @@
+$(function() {
 var remain = 5;
 var timer = setInterval(function() {
   remain = remain - 1;
@@ -10,3 +11,4 @@ var timer = setInterval(function() {
   }
   document.getElementById('timer').innerHTML = remain;
 }, 1000);
+});
