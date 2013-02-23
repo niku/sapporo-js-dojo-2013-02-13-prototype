@@ -15,11 +15,22 @@ app.get('/', function(req, res) {
 });
 
 var doneList = [];
+var cancelList = [];
 app.post('/pomodoro', function(req, res) {
   var done = req.body.done;
-  doneList.push(done);
+  var cancel = req.body.cancel;
+  if(done) {
+    doneList.push(done);
+  }
+  if(cancel) {
+    cancelList.push(cancel);
+  }
   console.log(doneList);
-  res.json(doneList);
+  console.log(cancelList);
+  res.json({
+    done: doneList,
+    cancel: cancelList
+  });
 });
 
 app.listen(3000);
