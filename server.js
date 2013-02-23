@@ -14,11 +14,12 @@ app.get('/', function(req, res) {
   res.render('index');
 });
 
+var doneList = [];
 app.post('/pomodoro', function(req, res) {
   var done = req.body.done;
-  console.log(done);
-  res.header('content-type', 'application/json');
-  res.render('success');
+  doneList.push(done);
+  console.log(doneList);
+  res.json(doneList);
 });
 
 app.listen(3000);
